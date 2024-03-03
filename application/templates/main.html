@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website with Header and Side Navigation Bar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header .user-info {
+            float: right;
+            margin-top: -30px;
+        }
+
+        nav {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            padding-top: 70px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            margin-bottom: 5px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        main {
+            margin-left: 200px;
+            padding: 20px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .switch-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .switch-label {
+            margin-right: 10px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 100px; /* Increased width for better visibility */
+            height: 60px; /* Increased height for better visibility */
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s; /* Cross-browser transition property */
+        }
+
+        /* Styling for the round knob of the slider */
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 44px; /* Increased height for better visibility */
+            width: 44px; /* Increased width for better visibility */
+            left: 8px; /* Adjusted position for better centering */
+            bottom: 8px; /* Adjusted position for better centering */
+            background-color: white;
+            transition: .4s; /* Cross-browser transition property */
+        }
+
+        /* Styling when the switch is checked */
+        .switch input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        /* Styling for focus effect */
+        .switch input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        /* Styling when the switch is checked (moves the round knob to the right) */
+        .switch input:checked + .slider:before {
+            transform: translateX(44px); /* Adjusted translation for better centering */
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 60px; /* Increased border-radius for better visibility */
+        }
+
+        /* Rounded knob for the slider */
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        /* Center the timer display */
+        .timer {
+            text-align: center;
+            margin-top: 100px; /* Adjusted margin for better spacing */
+            font-size: 100px;
+            align-items: center;
+            
+        }
+
+        
+    </style>
+</head>
+<body>
+<main>
+    <header>
+        <h1>Time Tracker</h1>
+        <div class="user-info">
+            <div class="dropdown">
+                <span>User: John Doe</span>
+
+                <div class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="#">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Analytics</a></li>
+            
+        </ul>
+    </nav>
+
+    
+    <div class="switch-container">
+        <label class="switch-label">Timer:</label>
+        <label class="switch">
+            <input type="checkbox" id="timerSwitch">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    
+    <div class="timer" id="timerDisplay">00:00:00</div>
+</main>
+
+<script>
+    // JavaScript for timer functionality
+    const timerSwitch = document.getElementById('timerSwitch');
+    const timerDisplay = document.getElementById('timerDisplay');
+
+    let timerInterval;
+    let startTime;
+
+    function startTimer() {
+        startTime = new Date().getTime();
+
+        timerInterval = setInterval(() => {
+            const currentTime = new Date().getTime();
+            const elapsedTime = currentTime - startTime;
+            updateTimer(elapsedTime);
+        }, 1000);
+    }
+
+    function stopTimer() {
+        clearInterval(timerInterval);
+    }
+
+    function updateTimer(elapsedTime) {
+        const hours = Math.floor(elapsedTime / 3600000);
+        const minutes = Math.floor((elapsedTime % 3600000) / 60000);
+        const seconds = Math.floor((elapsedTime % 60000) / 1000);
+
+        const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        timerDisplay.textContent = formattedTime;
+    }
+
+    timerSwitch.addEventListener('change', () => {
+        if (timerSwitch.checked) {
+            startTimer();
+        } else {
+            stopTimer();
+            // TODO: Send data to the backend (start time, end time, duration) for storage
+        }
+    });
+</script>
+</main>
+
+</body>
+</html>

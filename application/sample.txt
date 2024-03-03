@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample HTML Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to My Website</h1>
+
+    <p>This is a sample HTML page to demonstrate basic HTML components.</p>
+
+    <h2>Text Formatting</h2>
+    <p><strong>Bold Text</strong></p>
+    <p><em>Italic Text</em></p>
+    <p><u>Underlined Text</u></p>
+    <p><s>Strikethrough Text</s></p>
+
+    <h2>Lists</h2>
+    <ul>
+        <li>Unordered List Item 1</li>
+        <li>Unordered List Item 2</li>
+    </ul>
+
+    <ol>
+        <li>Ordered List Item 1</li>
+        <li>Ordered List Item 2</li>
+    </ol>
+
+    <h2>Links</h2>
+    <p><a href="https://example.com">Visit Example</a></p>
+
+    <h2>Images</h2>
+    <img src="https://via.placeholder.com/150" alt="Sample Image">
+
+    <h2>Forms</h2>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Tables</h2>
+    <table border="1">
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+        </tr>
+        <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+        </tr>
+    </table>
+
+    <h2>Comments</h2>
+    <!-- This is a sample comment in HTML -->
+
+</body>
+</html>
+==================================================================================================================
+
+
+
+.switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s; /* Cross-browser transition property */
+        }
+
+        /* Styling for the round knob of the slider */
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s; /* Cross-browser transition property */
+        }
+
+        /* Styling when the switch is checked */
+        .switch input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        /* Styling for focus effect */
+        .switch input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        /* Styling when the switch is checked (moves the round knob to the right) */
+        .switch input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        /* Rounded knob for the slider */
+        .slider.round:before {
+            border-radius: 50%;
+        }
