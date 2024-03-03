@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container a {
+            text-decoration: none;
+            color: #007bff;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Signup</h2>
+        <form action="#" method="post">
+            <input type="text" name="firstName" placeholder="First Name" required>
+            <br>
+            <input type="text" name="lastName" placeholder="Last Name" required>
+            <br>
+            <input type="email" name="email" placeholder="Email" required>
+            <br>
+            <input type="password" name="password" placeholder="Password" required>
+            <br>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+            <br>
+            <button type="submit">Signup</button>
+        </form>
+        <p>Already have an account? <a href="#">Login here</a></p>
+    </div><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodtimer Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            border-bottom: 2px solid #fff;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container a {
+            text-decoration: none;
+            color: #007bff;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        Prodtimer - Signup
+    </div>
+
+    <div class="form-container">
+        <h2>Signup</h2>
+        <form action="#" method="post">
+            <input type="text" name="firstName" placeholder="First Name" required>
+            <br>
+            <input type="text" name="lastName" placeholder="Last Name" required>
+            <br>
+            <input type="email" name="email" placeholder="Email" required>
+            <br>
+            <input type="password" name="password" placeholder="Password" required>
+            <br>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+            <br>
+            <button type="submit">Signup</button>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+    </div>
+
+</body>
+</html>
+
+
+</body>
+</html>
